@@ -55,4 +55,10 @@ This static frontend calls:
 http://127.0.0.1:8001
 ```
 
-For a public deployment, change `API_BASE` in `merged_utci_demo.js` to your deployed backend URL. Do not put API keys in this frontend repository.
+For a public deployment, change `API_BASE` in `merged_utci_demo.js` to your deployed backend URL, or set `window.COOLRUN_API_BASE` before loading the script. Do not put API keys in this frontend repository.
+
+Example after deploying the backend:
+
+```js
+const API_BASE = "https://your-coolrun-backend.onrender.com";
+```

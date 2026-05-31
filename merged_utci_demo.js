@@ -1,4 +1,7 @@
-const API_BASE = "http://127.0.0.1:8001";
+const LOCAL_API_BASE = "http://127.0.0.1:8001";
+const API_BASE = window.COOLRUN_API_BASE || LOCAL_API_BASE;
+const PUBLIC_BACKEND_REQUIRED =
+  window.location.hostname.endsWith("github.io") && API_BASE === LOCAL_API_BASE;
 const VIENNA_CENTER = [48.22057422849521, 16.411494407045154];
 const UTCI_TIMEOUT_MS = 15 * 60 * 1000;
 const state = {
@@ -43,6 +46,13 @@ function setStatus(message, type = "") {
   statusText.textContent = message;
   statusText.className = `status ${type}`.trim();
   statusBadge.textContent = type === "error" ? "Error" : type === "ready" ? "Done" : "Running";
+}
+
+if (PUBLIC_BACKEND_REQUIRED) {
+  setStatus(
+    "Public backend is not configured. GitHub Pages is serving the frontend, but API_BASE still points to localhost.",
+    "error"
+  );
 }
 
 async function fetchWithTimeout(url, options = {}, timeoutMs = 45000) {
@@ -369,6 +379,13 @@ function renderRouteCards(payload) {
 }
 
 async function runMergedWorkflow() {
+  if (PUBLIC_BACKEND_REQUIRED) {
+    setStatus(
+      "This public demo needs a deployed FastAPI backend URL. Set window.COOLRUN_API_BASE or edit API_BASE in merged_utci_demo.js.",
+      "error"
+    );
+    return;
+  }
   if (!state.start || !state.end) {
     setStatus("Select start and end points first.", "error");
     return;
