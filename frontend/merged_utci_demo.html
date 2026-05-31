@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CoolRun AI — Merged Vegetation UTCI Demo</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Merged vegetation experiment</p>
+        <h1>CoolRun AI — Merged SDK/OSM + AI Tree UTCI Route Test</h1>
+        <p class="subtitle">
+          Separate demo page for testing UTCI with merged Infrared SDK vegetation and Roboflow detected trees.
+        </p>
+      </div>
+      <div class="hero-stats">
+        <div><span id="mergedStatus">Ready</span><small>workflow</small></div>
+        <div><span id="mergedUtciState">--</span><small>UTCI</small></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="map-section">
+        <div class="section-heading">
+          <div>
+            <h2>Select route corridor</h2>
+            <p>Click once for start and once for end. This page always uses merged vegetation for UTCI.</p>
+          </div>
+          <div class="actions">
+            <button id="mergedClearBtn" type="button">Clear Points</button>
+            <button id="mergedRunBtn" type="button" class="primary">Run Merged UTCI + Route</button>
+          </div>
+        </div>
+        <div id="mergedStatusText" class="status">Select start point.</div>
+        <div id="map" style="width: 100%; min-height: 520px; height: min(62vh, 660px);"></div>
+      </section>
+
+      <section class="summary-strip">
+        <div><span id="mergedSdkTrees">--</span><small>SDK / OSM trees</small></div>
+        <div><span id="mergedAiTrees">--</span><small>AI trees</small></div>
+        <div><span id="mergedTrees">--</span><small>merged trees</small></div>
+        <div><span id="mergedDuplicates">--</span><small>duplicates</small></div>
+        <div><span id="mergedGround">--</span><small>ground materials</small></div>
+        <div><span id="mergedMeanUtci">--</span><small>mean UTCI</small></div>
+      </section>
+
+      <section class="visual-grid workflow-output-grid">
+        <article class="visual-card">
+          <h3>Extracted Vienna orthophoto</h3>
+          <img id="mergedOrthophoto" class="missing" alt="Extracted Vienna orthophoto" />
+          <p id="mergedOrthophotoNote">Waiting for selected-area extraction.</p>
+        </article>
+        <article class="visual-card">
+          <h3>Merged vegetation inputs</h3>
+          <img id="mergedTreesImage" class="missing" alt="Detected and merged vegetation" />
+          <p id="mergedTreesNote">Waiting for SDK/OSM + AI tree merge.</p>
+        </article>
+        <article class="visual-card">
+          <h3>UTCI heatmap from merged vegetation</h3>
+          <img id="mergedUtciImage" class="missing" alt="Merged vegetation UTCI heatmap" />
+          <p id="mergedUtciNote">Waiting for merged UTCI run.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <h2>Route suggestions from merged UTCI</h2>
+        <div id="mergedResults" class="results-empty">
+          Run the merged UTCI workflow to score Shortest, Coolest, and Balanced routes.
+        </div>
+      </section>
+
+      <section class="panel final-panel">
+        <h2>Recommended Route: Coolest Route</h2>
+        <div class="optimized-layout">
+          <div id="mergedOptimizedRoute" class="results-empty">
+            Run the merged UTCI workflow to select the final CoolRun route.
+          </div>
+          <div class="route-animation-panel">
+            <h3>Optimized route animation</h3>
+            <div id="mergedOptimizedAnimation" class="route-animation-empty">
+              Coolest route animation appears after scoring.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="./merged_utci_demo.js"></script>
+  </body>
+</html>

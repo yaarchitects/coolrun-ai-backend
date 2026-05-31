@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CoolRun AI &mdash; Tree-Aware Heat-Stress Running Routes for Vienna</title>
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Vienna hackathon demo</p>
+        <h1>CoolRun AI &mdash; Tree-Aware Heat-Stress Running Routes for Vienna</h1>
+        <p class="subtitle">
+          Using Vienna orthophotos, AI tree detection, and UTCI simulation to find cooler urban running paths.
+        </p>
+      </div>
+      <div class="hero-stats">
+        <div><span id="treeCount">--</span><small>detected trees</small></div>
+        <div><span id="utciState">Loading</span><small>UTCI status</small></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="grid overview-grid">
+        <article class="panel">
+          <h2>Project overview</h2>
+          <p>
+            CoolRun AI combines official Vienna aerial orthophotos, Roboflow tree detection, thermal-comfort
+            analysis, and walking route alternatives to recommend routes with more shade potential.
+          </p>
+        </article>
+        <article class="panel">
+          <h2>Input data</h2>
+          <ul>
+            <li>City of Vienna Orthofoto / ViennaGIS WMTS imagery</li>
+            <li>Roboflow tree detections exported as GeoJSON</li>
+            <li>Optional Infrared UTCI grids and summary outputs</li>
+            <li>OpenRouteService walking alternatives from the backend</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <h2>Detected trees</h2>
+          <p id="treeSummary">Loading detected tree GeoJSON...</p>
+        </article>
+        <article class="panel">
+          <h2>UTCI / thermal comfort results</h2>
+          <p id="utciSummary">Loading UTCI summary...</p>
+        </article>
+      </section>
+
+      <section class="workflow-section">
+        <div class="section-heading">
+          <div>
+            <h2>CoolRun workflow</h2>
+            <p>Select a route corridor, then run the same public demo stages: imagery, trees, UTCI, and route optimization.</p>
+          </div>
+          <div class="actions">
+            <button id="extractBtn" type="button">Extract Image</button>
+            <button id="detectBtn" type="button">Detect Trees</button>
+            <button id="utciBtn" type="button">Run UTCI</button>
+          </div>
+        </div>
+        <div id="workflowStatus" class="status">Start by selecting a start and end point on the map.</div>
+        <div class="control-grid">
+          <label>
+            UTCI date
+            <input id="utciDate" type="date" value="2026-07-15" />
+          </label>
+          <label>
+            Hour
+            <select id="utciHour">
+              <option value="9">09:00</option>
+              <option value="12">12:00</option>
+              <option value="15" selected>15:00</option>
+              <option value="18">18:00</option>
+            </select>
+          </label>
+          <label>
+            Vegetation mode
+            <select id="vegetationMode">
+              <option value="none">none</option>
+              <option value="sdk_only">sdk_only</option>
+              <option value="detected_only">detected_only</option>
+              <option value="merged" selected>merged</option>
+            </select>
+          </label>
+        </div>
+        <div class="summary-strip">
+          <div><span id="sdkTreeCount">--</span><small>SDK / OSM trees</small></div>
+          <div><span id="aiTreeCount">--</span><small>AI trees</small></div>
+          <div><span id="mergedTreeCount">--</span><small>merged trees</small></div>
+          <div><span id="duplicateTreeCount">--</span><small>duplicates</small></div>
+          <div><span id="groundMaterialCount">--</span><small>ground materials</small></div>
+          <div><span id="selectedTime">2026-07-15 15:00</span><small>UTCI time</small></div>
+        </div>
+        <div class="workflow-steps">
+          <article class="step-card active" id="stepSelect">
+            <span>1</span>
+            <h3>Select start and end</h3>
+            <p>Click the map once for the start and once for the end of the run.</p>
+          </article>
+          <article class="step-card" id="stepExtract">
+            <span>2</span>
+            <h3>Extract Vienna orthophoto</h3>
+            <p>Use the official aerial orthophoto for the current Vienna test area.</p>
+          </article>
+          <article class="step-card" id="stepDetect">
+            <span>3</span>
+            <h3>Detect trees</h3>
+            <p>Run or load Roboflow tree detections and plot nearby tree points.</p>
+          </article>
+          <article class="step-card" id="stepUtci">
+            <span>4</span>
+            <h3>Run UTCI</h3>
+            <p>Load UTCI output when available. Values are not faked when simulation is missing.</p>
+          </article>
+          <article class="step-card" id="stepRoute">
+            <span>5</span>
+            <h3>Optimize route</h3>
+            <p>Score available routes by distance, tree density, and UTCI if available.</p>
+          </article>
+        </div>
+        <div class="visual-grid workflow-output-grid">
+          <article class="visual-card">
+            <h3>Extracted Vienna orthophoto</h3>
+            <img id="orthophotoImage" class="missing" alt="Extracted Vienna orthophoto" />
+            <p id="orthophotoNote">Waiting for image extraction.</p>
+          </article>
+          <article class="visual-card">
+            <h3>Detected trees</h3>
+            <img id="detectedTreesImage" class="missing" alt="Detected trees on the Vienna orthophoto" />
+            <p id="detectedTreesNote">Waiting for tree detection.</p>
+          </article>
+          <article class="visual-card">
+            <h3>UTCI result</h3>
+            <img id="utciCoolingImage" class="missing" alt="UTCI cooling effect visualization" />
+            <p id="utciImageNote">Waiting for UTCI simulation.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="map-section">
+        <div class="section-heading">
+          <div>
+            <h2>Route optimizer</h2>
+            <p>Click the map once for a start point and again for an end point.</p>
+          </div>
+          <div class="actions">
+            <button id="clearBtn" type="button">Clear Points</button>
+            <button id="routeBtn" type="button" class="primary">Find Coolest Route</button>
+            <button id="replayBtn" type="button">Replay Coolest Route Animation</button>
+            <button id="demoBtn" type="button">Run Vienna Demo</button>
+          </div>
+        </div>
+        <div id="status" class="status">Select start point</div>
+        <div id="map"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Available routes</h2>
+        <div id="results" class="results-empty">
+          Select two points and run the optimizer. If the backend is offline, the page will try
+          <code>outputs/route_demo.json</code>.
+        </div>
+      </section>
+
+      <section class="panel final-panel">
+        <h2>Recommended Route: Coolest Route</h2>
+        <div class="optimized-layout">
+          <div id="optimizedRoute" class="results-empty">
+            Run the optimizer to select the final CoolRun route.
+          </div>
+          <div class="route-animation-panel">
+            <h3>Route animation</h3>
+            <div id="optimizedAnimation" class="route-animation-empty">
+              Optimized route animation appears after scoring.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

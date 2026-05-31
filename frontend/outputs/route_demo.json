@@ -1,0 +1,214 @@
+{
+  "utci_available": true,
+  "routes": [
+    {
+      "id": "route_1",
+      "name": "Shortest route",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            16.410928,
+            48.220019
+          ],
+          [
+            16.410915,
+            48.22009
+          ],
+          [
+            16.410948,
+            48.220146
+          ],
+          [
+            16.410793,
+            48.22018
+          ],
+          [
+            16.410638,
+            48.220279
+          ],
+          [
+            16.410501,
+            48.220383
+          ],
+          [
+            16.41043,
+            48.220407
+          ],
+          [
+            16.410339,
+            48.220475
+          ],
+          [
+            16.4103,
+            48.220505
+          ],
+          [
+            16.410441,
+            48.220602
+          ],
+          [
+            16.410561,
+            48.220656
+          ],
+          [
+            16.410725,
+            48.220747
+          ],
+          [
+            16.410791,
+            48.220784
+          ],
+          [
+            16.410875,
+            48.220835
+          ],
+          [
+            16.411046,
+            48.220935
+          ],
+          [
+            16.411061,
+            48.220945
+          ],
+          [
+            16.411204,
+            48.221034
+          ],
+          [
+            16.411978,
+            48.220453
+          ]
+        ]
+      },
+      "distance_m": 254.14059683450847,
+      "tree_count_near_route": 2,
+      "tree_density_per_km": 7.869659648680066,
+      "average_utci": 27.265625,
+      "coolrun_score": 100.0
+    }
+  ],
+  "recommended_route_name": "Shortest route",
+  "summary": {
+    "route_count": 1,
+    "tree_count": 11,
+    "utci_available": true,
+    "min_distance_m": 254.14059683450847,
+    "max_tree_density_per_km": 7.869659648680066,
+    "min_average_utci": 27.265625,
+    "max_coolrun_score": 100.0,
+    "selected": {
+      "shortest_route": "route_1",
+      "greenest_route": "route_1",
+      "coolest_route": "route_1"
+    }
+  },
+  "route_geometries": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              16.410928,
+              48.220019
+            ],
+            [
+              16.410915,
+              48.22009
+            ],
+            [
+              16.410948,
+              48.220146
+            ],
+            [
+              16.410793,
+              48.22018
+            ],
+            [
+              16.410638,
+              48.220279
+            ],
+            [
+              16.410501,
+              48.220383
+            ],
+            [
+              16.41043,
+              48.220407
+            ],
+            [
+              16.410339,
+              48.220475
+            ],
+            [
+              16.4103,
+              48.220505
+            ],
+            [
+              16.410441,
+              48.220602
+            ],
+            [
+              16.410561,
+              48.220656
+            ],
+            [
+              16.410725,
+              48.220747
+            ],
+            [
+              16.410791,
+              48.220784
+            ],
+            [
+              16.410875,
+              48.220835
+            ],
+            [
+              16.411046,
+              48.220935
+            ],
+            [
+              16.411061,
+              48.220945
+            ],
+            [
+              16.411204,
+              48.221034
+            ],
+            [
+              16.411978,
+              48.220453
+            ]
+          ]
+        },
+        "properties": {
+          "id": "route_1",
+          "distance_m": 254.14059683450847,
+          "sample_count": 12,
+          "tree_count_near_route": 2,
+          "tree_density": 0.16666666666666666,
+          "tree_density_per_km": 7.869659648680066,
+          "average_utci": 27.265625,
+          "coolrun_score": 100.0
+        }
+      }
+    ],
+    "selected": {
+      "shortest_route": "route_1",
+      "greenest_route": "route_1",
+      "coolest_route": "route_1"
+    },
+    "utci_available": true
+  },
+  "paths": {
+    "detected_trees_geojson": "outputs\\detected_trees.geojson",
+    "utci_grid": "outputs\\utci_with_trees.npy",
+    "scored_routes_geojson": "outputs\\scored_routes.geojson",
+    "route_map_html": "outputs\\coolrun_routes_map.html"
+  },
+  "warnings": []
+}

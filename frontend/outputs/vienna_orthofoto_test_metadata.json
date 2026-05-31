@@ -1,0 +1,43 @@
+{
+  "source": "City of Vienna Orthofoto / ViennaGIS WMTS",
+  "tile_url_template": "https://mapsneu.wien.gv.at/wmts/lb/farbe/google3857/{zoom}/{row}/{col}.jpeg",
+  "layer": "lb",
+  "style": "farbe",
+  "crs": "EPSG:3857",
+  "tile_matrix_set": "google3857",
+  "zoom": 18,
+  "tile_matrix": "18",
+  "tile_size": 256,
+  "center": {
+    "lat": 48.22057422849521,
+    "lon": 16.411494407045154
+  },
+  "bbox": {
+    "min_x": 1826766.3264923505,
+    "min_y": 6143476.4161439985,
+    "max_x": 1827072.074605491,
+    "max_y": 6143782.164257139,
+    "crs": "EPSG:3857"
+  },
+  "bbox_lonlat": {
+    "west": 16.4101211160295,
+    "south": 48.21965924494256,
+    "east": 16.41286769806075,
+    "north": 48.22148919569389,
+    "crs": "EPSG:4326"
+  },
+  "image_width": 512,
+  "image_height": 512,
+  "downloaded_tiles": [
+    "https://mapsneu.wien.gv.at/wmts/lb/farbe/google3857/18/90883/143021.jpeg",
+    "https://mapsneu.wien.gv.at/wmts/lb/farbe/google3857/18/90883/143022.jpeg",
+    "https://mapsneu.wien.gv.at/wmts/lb/farbe/google3857/18/90883/143023.jpeg",
+    "https://mapsneu.wien.gv.at/wmts/lb/farbe/google3857/18/90884/143021.jpeg",
+    "https://mapsneu.wien.gv.at/wmts/lb/farbe/google3857/18/90884/143022.jpeg",
+    "https://mapsneu.wien.gv.at/wmts/lb/farbe/google3857/18/90884/143023.jpeg",
+    "https://mapsneu.wien.gv.at/wmts/lb/farbe/google3857/18/90885/143021.jpeg",
+    "https://mapsneu.wien.gv.at/wmts/lb/farbe/google3857/18/90885/143022.jpeg",
+    "https://mapsneu.wien.gv.at/wmts/lb/farbe/google3857/18/90885/143023.jpeg"
+  ],
+  "output_path": "C:\\Users\\dalam\\OneDrive\\Masa\u00fcst\u00fc\\coolrun-ai\\data\\vienna_orthofoto_test.png"
+}

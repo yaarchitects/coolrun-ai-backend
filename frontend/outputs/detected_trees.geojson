@@ -1,0 +1,283 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.411384436475515,
+          48.21998806903932
+        ]
+      },
+      "properties": {
+        "source": "roboflow",
+        "class": "tree",
+        "confidence": 0.6675279140472412,
+        "bbox_width": 31.0,
+        "bbox_height": 34.0,
+        "bbox_area_px": 1054.0,
+        "canopy_radius_m": 6.458218757974938,
+        "radius_m": 6.458218757974938,
+        "radius": 6.458218757974938,
+        "canopy_radius_source": "estimated_from_roboflow_bbox",
+        "coordinate_source": "vienna_orthofoto_metadata"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.41139248310256,
+          48.2205742284952
+        ]
+      },
+      "properties": {
+        "source": "roboflow",
+        "class": "tree",
+        "confidence": 0.649695634841919,
+        "bbox_width": 26.0,
+        "bbox_height": 26.0,
+        "bbox_area_px": 676.0,
+        "canopy_radius_m": 5.166515848153301,
+        "radius_m": 5.166515848153301,
+        "radius": 5.166515848153301,
+        "canopy_radius_source": "estimated_from_roboflow_bbox",
+        "coordinate_source": "vienna_orthofoto_metadata"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.411998662339926,
+          48.221147871952155
+        ]
+      },
+      "properties": {
+        "source": "roboflow",
+        "class": "tree",
+        "confidence": 0.6265468001365662,
+        "bbox_width": 46.0,
+        "bbox_height": 47.0,
+        "bbox_area_px": 2162.0,
+        "canopy_radius_m": 9.240011338270943,
+        "radius_m": 9.240011338270943,
+        "radius": 9.240011338270943,
+        "canopy_radius_source": "estimated_from_roboflow_bbox",
+        "coordinate_source": "vienna_orthofoto_metadata"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.410676333295584,
+          48.22040624445919
+        ]
+      },
+      "properties": {
+        "source": "roboflow",
+        "class": "tree",
+        "confidence": 0.5681830048561096,
+        "bbox_width": 25.0,
+        "bbox_height": 26.0,
+        "bbox_area_px": 650.0,
+        "canopy_radius_m": 5.067176401982523,
+        "radius_m": 5.067176401982523,
+        "radius": 5.067176401982523,
+        "canopy_radius_source": "estimated_from_roboflow_bbox",
+        "coordinate_source": "vienna_orthofoto_metadata"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.41197452245879,
+          48.22132478873066
+        ]
+      },
+      "properties": {
+        "source": "roboflow",
+        "class": "tree",
+        "confidence": 0.5639992356300354,
+        "bbox_width": 29.0,
+        "bbox_height": 30.0,
+        "bbox_area_px": 870.0,
+        "canopy_radius_m": 5.861922417710133,
+        "radius_m": 5.861922417710133,
+        "radius": 5.861922417710133,
+        "canopy_radius_source": "estimated_from_roboflow_bbox",
+        "coordinate_source": "vienna_orthofoto_metadata"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.412081810819387,
+          48.221360529419776
+        ]
+      },
+      "properties": {
+        "source": "roboflow",
+        "class": "tree",
+        "confidence": 0.45895320177078247,
+        "bbox_width": 39.0,
+        "bbox_height": 38.0,
+        "bbox_area_px": 1482.0,
+        "canopy_radius_m": 7.650300186776058,
+        "radius_m": 7.650300186776058,
+        "radius": 7.650300186776058,
+        "canopy_radius_source": "estimated_from_roboflow_bbox",
+        "coordinate_source": "vienna_orthofoto_metadata"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.412323209630728,
+          48.21980221220066
+        ]
+      },
+      "properties": {
+        "source": "roboflow",
+        "class": "tree",
+        "confidence": 0.4319204092025757,
+        "bbox_width": 27.0,
+        "bbox_height": 26.0,
+        "bbox_area_px": 702.0,
+        "canopy_radius_m": 5.265951336277701,
+        "radius_m": 5.265951336277701,
+        "radius": 5.265951336277701,
+        "canopy_radius_source": "estimated_from_roboflow_bbox",
+        "coordinate_source": "vienna_orthofoto_metadata"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.412709447728872,
+          48.21970749643679
+        ]
+      },
+      "properties": {
+        "source": "roboflow",
+        "class": "tree",
+        "confidence": 0.4242745041847229,
+        "bbox_width": 51.0,
+        "bbox_height": 27.0,
+        "bbox_area_px": 1377.0,
+        "canopy_radius_m": 7.749904984527635,
+        "radius_m": 7.749904984527635,
+        "radius": 7.749904984527635,
+        "canopy_radius_source": "estimated_from_roboflow_bbox",
+        "coordinate_source": "vienna_orthofoto_metadata"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.412848922597647,
+          48.22055814494116
+        ]
+      },
+      "properties": {
+        "source": "roboflow",
+        "class": "tree",
+        "confidence": 0.4165855050086975,
+        "bbox_width": 7.0,
+        "bbox_height": 37.0,
+        "bbox_area_px": 259.0,
+        "canopy_radius_m": 4.371668629642391,
+        "radius_m": 4.371668629642391,
+        "radius": 4.371668629642391,
+        "canopy_radius_source": "estimated_from_roboflow_bbox",
+        "coordinate_source": "vienna_orthofoto_metadata"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.41163924633193,
+          48.22057065437253
+        ]
+      },
+      "properties": {
+        "source": "roboflow",
+        "class": "tree",
+        "confidence": 0.38112014532089233,
+        "bbox_width": 32.0,
+        "bbox_height": 34.0,
+        "bbox_area_px": 1088.0,
+        "canopy_radius_m": 6.557501342031968,
+        "radius_m": 6.557501342031968,
+        "radius": 6.557501342031968,
+        "canopy_radius_source": "estimated_from_roboflow_bbox",
+        "coordinate_source": "vienna_orthofoto_metadata"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.410311552869562,
+          48.21968605133385
+        ]
+      },
+      "properties": {
+        "source": "roboflow",
+        "class": "tree",
+        "confidence": 0.3729012608528137,
+        "bbox_width": 27.0,
+        "bbox_height": 15.0,
+        "bbox_area_px": 405.0,
+        "canopy_radius_m": 4.173027508749493,
+        "radius_m": 4.173027508749493,
+        "radius": 4.173027508749493,
+        "canopy_radius_source": "estimated_from_roboflow_bbox",
+        "coordinate_source": "vienna_orthofoto_metadata"
+      }
+    }
+  ],
+  "metadata": {
+    "source_image": "c:\\Users\\dalam\\OneDrive\\Masa\u00fcst\u00fc\\coolrun-ai\\data\\vienna_orthofoto_test.png",
+    "imagery_source": "City of Vienna Orthofoto / ViennaGIS WMTS",
+    "center": {
+      "lat": 48.22057422849521,
+      "lon": 16.411494407045154
+    },
+    "bbox": {
+      "min_x": 1826766.3264923505,
+      "min_y": 6143476.4161439985,
+      "max_x": 1827072.074605491,
+      "max_y": 6143782.164257139,
+      "crs": "EPSG:3857"
+    },
+    "bbox_lonlat": {
+      "west": 16.4101211160295,
+      "south": 48.21965924494256,
+      "east": 16.41286769806075,
+      "north": 48.22148919569389,
+      "crs": "EPSG:4326"
+    },
+    "crs": "EPSG:3857",
+    "image_width": 512,
+    "image_height": 512
+  }
+}
