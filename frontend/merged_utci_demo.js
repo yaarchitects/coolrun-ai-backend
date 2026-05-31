@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:8001";
+const API_BASE = "https://coolrun-ai-backend.onrender.com";
 const VIENNA_CENTER = [48.22057422849521, 16.411494407045154];
 const UTCI_TIMEOUT_MS = 15 * 60 * 1000;
 const state = {
