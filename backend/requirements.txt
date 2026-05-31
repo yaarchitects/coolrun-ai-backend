@@ -1,13 +1,10 @@
 requests
 python-dotenv
-inference-sdk
 fastapi
 uvicorn[standard]
 pillow
 matplotlib
 numpy
-jupyter
-notebook
 infrared-sdk
 plotly
 folium

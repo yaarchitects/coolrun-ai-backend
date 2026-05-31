@@ -234,6 +234,17 @@ Option 2, one FastAPI server:
 
 CORS currently allows localhost for development. For production, restrict `allow_origins` in `backend/app/main.py` to the deployed frontend URL.
 
+### Render Backend Settings
+
+Use the backend-specific requirements file for Render. It excludes notebook-only packages such as `inference-sdk`, which are not required by the FastAPI app.
+
+```text
+Root Directory: backend
+Runtime: Python
+Build Command: pip install -r requirements.txt
+Start Command: python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT
+```
+
 ## Publish To GitHub
 
 This folder is prepared to publish as a new repository. Generated local files are ignored by default, so GitHub receives the source code and notebooks without private keys, virtual environments, cached SDK files, downloaded imagery, or generated UTCI outputs.
